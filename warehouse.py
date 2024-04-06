@@ -40,10 +40,38 @@ while True:
             print("\n ERROR! INVALID COMMAND. TRY AGAIN.")
             
     elif command == "2":
-        
+        product = input("Enter product name: ")
+        if product in inventory:
+            price = inventory[product][1]
+            quantity = int(input("Enter product quantity: "))
+            if quantity <= inventory[product][0]:
+                total_sale = price * quantity
+                account_balance += total_sale
+                inventory[product] = (inventory[product][0] - quantity, price)
+                if inventory[product][0] == 0:
+                    del inventory[product]
+                operations.append(("Sale", (product, quantity, price, total_sale)))
+                print(f"Sale recorded. New account balance: {account_balance}")
+            else:
+                print(f"Insufficient quantity of {product} in the inventory.")
+        else:
+            print(f"{product} is not available in the inventory.")
 
     elif command == "3":
-
+        product = input("Enter product name: ")
+        price = float(input("Enter product price: "))
+        quantity = int(input("Enter product quantity: "))
+        total_cost = price * quantity
+        if total_cost <= account_balance:
+            account_balance -= total_cost
+            if product in inventory:
+                inventory[product] = (inventory[product][0] + quantity, price)
+            else:
+                inventory[product] = (quantity, price)
+            operations.append(("Purchase", (product, quantity, price, total_cost)))
+            print(f"Purchase recorded. New account balance: {account_balance}")
+        else:
+            print("ERROR! INSUFFICIENT BALNACE FOR THIS PURCHASE!")
 
     elif command == "4":
         print(f"\nCurrent account balance: {account_balance}")
