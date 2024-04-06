@@ -19,10 +19,28 @@ while True:
     command = input("\nEnter choice: ")
 
     if command == "1":
- 
+        print("\nDo you want to: ")
+        print("\t1. Add to account balance ")
+        print("\t2. Subtract from account balance ")
+        choice = input("Enter choice: ")
+        
+        if choice == "1":
+            amount = float(input("PLease enter amount to add to account balance: "))
+            account_balance += amount
+            operations.append(("Balance", amount))
+            print(f"\nNEW ACCOUNT BALANCE: {account_balance}")
+
+        elif choice == "2":
+            amount = float(input("Plesae enter am ount to subtract from account balance: "))
+            account_balance -= amount
+            operations.append(("Balance", amount))
+            print(f"\nNEW ACCOUNT BALANCE: {account_balance}")
+
+        else:
+            print("\n ERROR! INVALID COMMAND. TRY AGAIN.")
             
     elif command == "2":
-
+        
 
     elif command == "3":
 
