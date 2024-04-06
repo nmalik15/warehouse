@@ -18,4 +18,30 @@ while True:
 
     command = input("\nEnter choice: ")
 
-    
+    if command == "1":
+ 
+            
+    elif command == "2":
+
+
+    elif command == "3":
+
+
+    elif command == "4":
+        print(f"\nCurrent account balance: {account_balance}")
+
+    elif command == "5":
+
+
+    elif command == "6":
+
+
+    elif command == "7":
+
+
+    elif command == "8":
+        print("Terminating program...")
+        break
+
+    else:
+        print("\n ERROR! INVALID COMMAND! PLEASE TRY AGAIN!")
